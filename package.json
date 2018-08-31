@@ -1,0 +1,25 @@
+{
+  "name": "pubsub_weekend_homework",
+  "version": "1.0.0",
+  "description": "### Learning Objectives",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tannyque/week_07_weekend_homework_pubsub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tannyque/week_07_weekend_homework_pubsub/issues"
+  },
+  "homepage": "https://github.com/tannyque/week_07_weekend_homework_pubsub#readme",
+  "devDependencies": {
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  }
+}

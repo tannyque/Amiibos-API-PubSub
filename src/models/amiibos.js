@@ -4,6 +4,7 @@ const PubSub = require('../helpers/pub_sub.js');
 const Amiibos = function (url) {
   this.url = url;
   this.amiibos = [];
+  this.amiiboSeries = [];
 };
 
 Amiibos.prototype.getData = function () {
@@ -19,6 +20,23 @@ Amiibos.prototype.getData = function () {
 Amiibos.prototype.handleData = function (data) {
   this.amiibos = data.amiibo;
   PubSub.publish("Amiibos:amiibos-data-ready", this.amiibos);
+  this.publishAmiiboSeries(data.amiibo)
+};
+
+Amiibos.prototype.publishAmiiboSeries = function (data) {
+  this.amiiboSeries = this.uniqueAmiiboSeries();
+  PubSub.publish('Amiibos:amiibos-series-ready', this.amiiboSeries);
+};
+
+Amiibos.prototype.amiiboSeriesList = function () {
+  const fullList = this.amiibos.map(amiibos => amiibos.amiiboSeries);
+  return fullList;
+};
+
+Amiibos.prototype.uniqueAmiiboSeries = function () {
+  return this.amiiboSeriesList().filter((amiibo, index, array) => {
+    return array.indexOf(amiibo) === index;
+  });
 };
 
 module.exports = Amiibos;

@@ -7,6 +7,13 @@ const Amiibos = function (url) {
   this.amiiboSeries = [];
 };
 
+Amiibos.prototype.bindEvents = function () {
+  PubSub.subscribe('SelectView:change', (event) => {
+    const seriesIndex = event.detail;
+    this.publishAmiibosBySeries(seriesIndex);
+  })
+};
+
 Amiibos.prototype.getData = function () {
   const request = new Request(this.url);
   // data is an object of array of objects(?)
@@ -37,6 +44,18 @@ Amiibos.prototype.uniqueAmiiboSeries = function () {
   return this.amiiboSeriesList().filter((amiibo, index, array) => {
     return array.indexOf(amiibo) === index;
   });
+};
+
+Amiibos.prototype.amiibosBySeries = function (seriesIndex) {
+  const selectedSeries = this.amiiboSeries[seriesIndex];
+  return this.amiibos.filter((amiibo) => {
+    return amiibo.amiiboSeries === selectedSeries;
+  });
+};
+
+Amiibos.prototype.publishAmiibosBySeries = function (seriesIndex) {
+  const foundSeries = this.amiibosBySeries(seriesIndex);
+  PubSub.publish('Amiibos:amiibos-data-ready', foundSeries);
 };
 
 module.exports = Amiibos;

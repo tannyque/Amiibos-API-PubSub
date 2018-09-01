@@ -18,7 +18,6 @@ Amiibos.prototype.getData = function () {
 
 Amiibos.prototype.handleData = function (data) {
   this.amiibos = data.amiibo;
-  console.log(this.amiibos);
   PubSub.publish("Amiibos:amiibos-data-ready");
 };
 

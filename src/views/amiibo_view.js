@@ -45,6 +45,14 @@ AmiiboView.prototype.populateList = function (list) {
   const amiiboGameSeries = document.createElement('li');
   amiiboGameSeries.textContent = `Game Series: ${this.amiibo.gameSeries}`;
   list.appendChild(amiiboGameSeries);
+  const amiiboType = document.createElement('li');
+  amiiboType.textContent = `Type: ${this.amiibo.type}`;
+  list.appendChild(amiiboType);
+
+  // NORTH AMERICA RELEASE DATE
+  // const amiiboReleaseDate = document.createElement('li');
+  // amiiboReleaseDate.textContent = `Release: ${this.amiibo.release.na}`;
+  // list.appendChild(amiiboReleaseDate)
 };
 
 AmiiboView.prototype.createImage = function () {

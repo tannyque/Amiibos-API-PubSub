@@ -7,12 +7,17 @@ const AmiibosListView = function (container) {
 
 AmiibosListView.prototype.bindEvents = function () {
   PubSub.subscribe('Amiibos:amiibos-data-ready', (event) => {
+    this.clearList();
     this.amiibos = event.detail;
     this.render();
   });
 };
 
-AmiibosListView.prototype.render = function () {
+AmiibosListView.prototype.clearList = function () {
+  this.container.innerHTML = '';
+};
+
+AmiibosListView.prototype.render = function (amiibos) {
   this.amiibos.forEach((amiibo) => {
     const amiiboView = new AmiiboView(this.container, amiibo)
     amiiboView.render();

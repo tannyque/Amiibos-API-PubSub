@@ -13,5 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   amiibosListView.bindEvents();
 
   const amiibos = new Amiibos("http://www.amiiboapi.com/api/amiibo/");
+  amiibos.bindEvents();
   amiibos.getData();
 })

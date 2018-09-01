@@ -17,9 +17,8 @@ body {
 #amiibos {
   display: flex;
   flex-wrap: wrap;
-  align-content: flex-start;
+  align-content: space-between;
   margin: auto;
-  padding: 20px;
 }
 
 .image {

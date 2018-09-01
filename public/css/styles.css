@@ -23,6 +23,9 @@ body {
 }
 
 .image {
-  height: 300px;
-  margin-left: 20px;
+  height: 250px;
+  width: 200px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
 }

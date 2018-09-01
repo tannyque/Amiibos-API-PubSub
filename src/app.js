@@ -1,5 +1,6 @@
 const Amiibos = require('./models/amiibos.js');
 const AmiibosListView = require('./views/amiibos_list_view');
+// const AmiiboView = require('./views/amiibo_view.js')
 
 document.addEventListener('DOMContentLoaded', () => {
   const amiibosListContainer = document.querySelector('#amiibos')

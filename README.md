@@ -20,13 +20,7 @@ npm run build
 
 Your task is to create an application that makes a request to an API and displays the data.
 
-Suggested APIs:
-
-1. REST Countries: https://restcountries.eu/
-2. Studio Ghibli: https://ghibliapi.herokuapp.com/
-3. Brewdog Beer: https://punkapi.com/
-
-These APIs all allow browser requests without authentification or keys. If you choose to use a different API, make sure you are able to load the data into your application without issues, so that you can spend the time focussing on building your application. We suggest you do not use an API that requires authentification (OAuth), though using an API which requires a key is fine, as long as you are able to get a key quickly and easily.
+API - http://www.amiiboapi.com/
 
 ### MVP
 

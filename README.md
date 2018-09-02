@@ -1,5 +1,15 @@
 # Weekend Homework: Pub/Sub Application with Requests
 
+## How to run the app 
+
+Download the repo and enter the following into the console whilst in the root directory: 
+
+```bash
+npm i
+npm run build
+```
+
+
 ### Learning Objectives
 
 - Be able to create a web application with a modular front-end
@@ -45,12 +55,3 @@ To make the request you may use either `fetch` or the `XMLHttpRequest` object.
 - Look at the JSON you are going to be loading into your app and based on the data, draw a wireframe
 - Start by loading the data from the API into your application and checking that it has loaded, before doing any work on the views
 - Plan your models and your views and draw a diagram of the data flow through the application
-
-## How to run the app 
-
-Download the repo and enter the following into the console whilst in the root directory: 
-
-```bash
-npm i
-npm run build
-```

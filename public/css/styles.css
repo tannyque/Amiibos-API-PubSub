@@ -3,9 +3,9 @@ body {
   font-family: 'Baloo Thambi', cursive;
 }
 
-.main-container {
-  padding: 20px;
-}
+/* .main-container {
+padding: 20px;
+} */
 
 .logo {
   display: flex;
@@ -26,7 +26,12 @@ h1 {
 .label-select {
   display: flex;
   justify-content: center;
+  padding-top: 25px;
   padding-bottom: 25px;
+}
+
+label {
+  padding-right: 20px;
 }
 
 h2, #amiibos {
@@ -36,6 +41,10 @@ h2, #amiibos {
   align-content: space-between;
   margin: auto;
   padding: 10px;
+}
+
+li {
+  font-size: 16px;
 }
 
 .image {

@@ -35,6 +35,7 @@ AmiiboView.prototype.createAmiiboInfo = function () {
   return amiiboInfo;
 };
 
+// TODO: Refactor li
 AmiiboView.prototype.populateList = function (list) {
   const amiiboSeries = document.createElement('li');
   amiiboSeries.textContent = `Amiibo Series: ${this.amiibo.amiiboSeries}`;

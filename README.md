@@ -4,9 +4,18 @@
 
 Download the repo and enter the following into the console whilst in the root directory: 
 
-```bash
-npm i
+```
+npm install
+```
+
+Run webpack (leave running in a terminal window):
+```
 npm run build
+```
+Open webpage
+
+```
+open public/index.html
 ```
 
 

@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectView = new SelectView(selectElement);
   selectView.bindEvents();
 
-  const amiibosListContainer = document.querySelector('#amiibos')
+  const amiibosListContainer = document.querySelector('#amiibo')
   const amiibosListView = new AmiibosListView(amiibosListContainer);
   amiibosListView.bindEvents();
 

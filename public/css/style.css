@@ -34,7 +34,7 @@ label {
   padding-right: 20px;
 }
 
-h2, #amiibos {
+h2, #amiibo {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

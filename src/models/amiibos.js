@@ -3,8 +3,8 @@ const PubSub = require('../helpers/pub_sub.js');
 
 const Amiibos = function (url) {
   this.url = url;
-  this.amiibos = [];
-  this.amiiboSeries = [];
+  this.amiibos = null;
+  this.amiiboSeries = 'All';
 };
 
 Amiibos.prototype.bindEvents = function () {
@@ -18,16 +18,16 @@ Amiibos.prototype.getData = function () {
   const request = new Request(this.url);
   // data is an object of array of objects(?)
   request.get()
-  .then(data => this.handleData(data))
+  .then(data => this.handleData(data.amiibo))
   .catch((err) => {
     console.error(err);
   });
 };
 
 Amiibos.prototype.handleData = function (data) {
-  this.amiibos = data.amiibo;
+  this.amiibos = data;
   PubSub.publish("Amiibos:amiibos-data-ready", this.amiibos);
-  this.publishAmiiboSeries(data.amiibo)
+  this.publishAmiiboSeries(data)
 };
 
 Amiibos.prototype.publishAmiiboSeries = function (data) {
@@ -49,7 +49,7 @@ Amiibos.prototype.uniqueAmiiboSeries = function () {
 Amiibos.prototype.amiibosBySeries = function (seriesIndex) {
   const selectedSeries = this.amiiboSeries[seriesIndex];
   return this.amiibos.filter((amiibo) => {
-    return amiibo.amiiboSeries === selectedSeries;
+    return (seriesIndex === 'All' || amiibo.amiiboSeries === selectedSeries);
   });
 };
 

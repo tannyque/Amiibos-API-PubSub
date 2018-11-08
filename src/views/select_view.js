@@ -7,11 +7,10 @@ const SelectView = function (selectElement) {
 SelectView.prototype.bindEvents = function () {
   PubSub.subscribe('Amiibos:amiibos-series-ready', (event) => {
     this.populateSelect(event.detail)
-  });
-
-  this.selectElement.addEventListener('change', (event) => {
-    const selectedIndex = event.target.value;
-    PubSub.publish('SelectView:change', selectedIndex);
+    this.selectElement.addEventListener('change', (event) => {
+      const selectedIndex = event.target.value;
+      PubSub.publish('SelectView:change', selectedIndex);
+    });
   });
 };
 
@@ -20,6 +19,7 @@ SelectView.prototype.populateSelect = function (series) {
     const option = this.createSeriesOption(series, index);
     this.selectElement.appendChild(option);
   });
+  this.populated = true;
 };
 
 SelectView.prototype.createSeriesOption = function (series, index) {

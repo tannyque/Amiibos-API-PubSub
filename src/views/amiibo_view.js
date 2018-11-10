@@ -22,7 +22,7 @@ AmiiboView.prototype.render = function () {
 };
 
 AmiiboView.prototype.createAmiiboHeading = function () {
-  const name = document.createElement('h3');
+  const name = document.createElement('h2');
   name.classList.add('amiibo-name');
   name.textContent = this.amiibo.name;
   return name;

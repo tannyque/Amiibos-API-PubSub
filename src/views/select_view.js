@@ -19,7 +19,6 @@ SelectView.prototype.populateSelect = function (series) {
     const option = this.createSeriesOption(series, index);
     this.selectElement.appendChild(option);
   });
-  this.populated = true;
 };
 
 SelectView.prototype.createSeriesOption = function (series, index) {

@@ -12,7 +12,7 @@ AmiiboView.prototype.render = function () {
   const name = this.createAmiiboHeading()
   amiiboContainer.appendChild(name);
 
-  const amiiboInfo = this.createAmiiboInfo();
+  const amiiboInfo = this.createAmiiboInfoList();
   amiiboContainer.appendChild(amiiboInfo);
 
   const image = this.createImage();
@@ -28,32 +28,14 @@ AmiiboView.prototype.createAmiiboHeading = function () {
   return name;
 };
 
-AmiiboView.prototype.createAmiiboInfo = function () {
-  const amiiboInfo = document.createElement('ul');
-  amiiboInfo.classList.add('amiibo-info');
-  this.populateList(amiiboInfo);
-  return amiiboInfo;
-};
+AmiiboView.prototype.createAmiiboInfoList = function (amiibo) {
+  const amiiboInfoList = document.createElement('ul');
 
-// TODO: Refactor li
-AmiiboView.prototype.populateList = function (list) {
-  const amiiboSeries = document.createElement('li');
-  amiiboSeries.textContent = "Amiibo Series: " + this.amiibo.amiiboSeries;
-  list.appendChild(amiiboSeries);
-  const amiiboCharacter = document.createElement('li');
-  amiiboCharacter.textContent = `Character: ${this.amiibo.character}`;
-  list.appendChild(amiiboCharacter);
-  const amiiboGameSeries = document.createElement('li');
-  amiiboGameSeries.textContent = `Game Series: ${this.amiibo.gameSeries}`;
-  list.appendChild(amiiboGameSeries);
-  const amiiboType = document.createElement('li');
-  amiiboType.textContent = `Type: ${this.amiibo.type}`;
-  list.appendChild(amiiboType);
-
-  // NORTH AMERICA RELEASE DATE
-  // const amiiboReleaseDate = document.createElement('li');
-  // amiiboReleaseDate.textContent = `Release: ${this.amiibo.release.na}`;
-  // list.appendChild(amiiboReleaseDate)
+  const liAmiiboSeries = this.createLi("Amiibo Series: " + this.amiibo.amiiboSeries, amiiboInfoList);
+  const liAmiiboCharacter = this.createLi(`Character: ${this.amiibo.character}`, amiiboInfoList);
+  const liAmiiboGameSeries = this.createLi(`Game Series: ${this.amiibo.gameSeries}`, amiiboInfoList);
+  const liAmiiboType = this.createLi(`Type: ${this.amiibo.type}` + this.amiibo.amiiboSeries, amiiboInfoList);
+  return amiiboInfoList;
 };
 
 AmiiboView.prototype.createImage = function () {
@@ -62,6 +44,12 @@ AmiiboView.prototype.createImage = function () {
   // classList is the name of the class in html
   img.classList.add("image")
   return img;
+};
+
+AmiiboView.prototype.createLi = function(textContent, ul) {
+  const li = document.createElement('li');
+  li.textContent = textContent;
+  ul.appendChild(li);
 };
 
 module.exports = AmiiboView;
